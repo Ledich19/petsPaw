@@ -1,0 +1,9 @@
+.navLink {
+  cursor: pointer;
+  color: var(--textColor);
+  border-right: solid 1px var(--textColor);
+}
+.activeLink {
+  color: var(--activeColor);
+  border-right: solid 1px var(--textColor);
+}

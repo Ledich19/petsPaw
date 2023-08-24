@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import ErrorPage from './pages/Page404/Page404';
 import Layout from './pages/Layout/Layout';
-import HelloPage from './components/HelloPage/HelloPage';
+import HelloPage from './pages/HelloPage/HelloPage';
 
 const App = () => {
   return (

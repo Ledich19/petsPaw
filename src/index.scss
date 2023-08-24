@@ -1,4 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
+@font-face {
+  font-family: "icons";
+  font-display: swap;
+  src: url("/icons/icomoon.woff") format("woff"), url("/icons/icomoon.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+%ic {
+  font-family: "icons";
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: grayscale;
+}
+
+[class^="icon-"],
+[class*="icon-"] {
+  &:before {
+      @extend %ic;
+      display: block;
+  }
+}
+
+.icon-back:before {
+  content: "\e900";
+}
+.icon-close:before {
+  content: "\e901";
+}
+.icon-dislike:before {
+  content: "\e902";
+}
+.icon-error:before {
+  content: "\e903";
+}
+.icon-fav:before {
+  content: "\e904";
+}
+.icon-fav-color:before {
+  content: "\e905";
+}
+.icon-like:before {
+  content: "\e906";
+}
+.icon-paw:before {
+  content: "\e907";
+}
+.icon-search:before {
+  content: "\e908";
+}
+.icon-sort-color-20:before {
+  content: "\e909";
+}
+.icon-sort-revert-color-20:before {
+  content: "\e90a";
+}
+.icon-success:before {
+  content: "\e90b";
+}
+.icon-update:before {
+  content: "\e90c";
+}
+.icon-upload:before {
+  content: "\e90d";
+}
+.icon-spinner2:before {
+  content: "\e97b";
+}
 
 * {
   box-sizing: border-box;

@@ -1,10 +1,21 @@
-.wrapper{
-  flex: 14;
-  height: 100%;
+.hello{
+  flex: 1;
+  padding: 30px;
 }
-.img{
-  display: block;
+.wrapper {
   height: 100%;
-  width: 100%;
+  background-color: var(--hoverColor);
+  border-radius: 20px;
+}
+
+.img {
+  position: absolute;
+  display: block;
+  height: 100vh;
+  width: 55%;
+  top: 0;
+  right: 0;
   object-fit: cover;
+  object-position: left; /* Добавленное свойство */
+  z-index: 100;
 }

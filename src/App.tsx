@@ -1,19 +1,17 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import ErrorPage from './pages/Page404/Page404';
 import Layout from './pages/Layout/Layout';
-import Hello from './pages/Hello/Hello';
-
-import About from './pages/About/About';
-import Item from './components/Item/Item';
+import HelloPage from './components/HelloPage/HelloPage';
 
 const App = () => {
   return (
     <Routes>
       <Route path="*" element={<Layout />}>
-        <Route index element={<Hello />} />
-        <Route path="about" element={<About />}>
-          <Route path="item" element={<Item />} />
-        </Route>
+        <Route path="/*" element={<HelloPage />} />
+        <Route path="voting" element={<>voting</>} />
+        <Route path="breeds" element={<>breeds</>} />
+        <Route path="breeds/:id" element={<>breeds/:id</>} />
+        <Route path="gallery" element={<>gallery</>} />
         <Route path="404" element={<ErrorPage />} />
         <Route path="*" element={<Navigate to="404" />} />
       </Route>

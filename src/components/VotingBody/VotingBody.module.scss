@@ -1,0 +1,34 @@
+.voteBody {
+  flex: 1 0;
+  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--subBgBackground);
+}
+.header {
+  display: flex;
+}
+.main {
+  position: relative;
+}
+.buttons {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.imageBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  height: 40vh;
+  & img {
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}

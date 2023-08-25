@@ -1,0 +1,41 @@
+.btnBlock {
+  display: inline-block;
+  height: 60px;
+  border-radius: 20px;
+  border: 2px solid var(--subBgBackground);
+  background-color: var(--subBgBackground);
+  overflow: hidden;
+}
+.btn {
+  height: 60px;
+  width: 60px;
+  font-size: 30px;
+  color: white;
+  border: none;
+  height: 100%;
+  cursor: pointer;
+  &:not(:first-child) {
+    margin-left: 3px;
+  }
+}
+.like {
+  @extend .btn;
+  background-color: var(--mainGreen);
+  &:hover{
+    background-color: var(--mainLightGreen);
+  }
+}
+.fav {
+  @extend .btn;
+  background-color: var(--mainRed);
+  &:hover{
+    background-color: var(--mainLightRed);
+  }
+}
+.dislike {
+  @extend .btn;
+  background-color: var(--mainYellow);
+  &:hover{
+    background-color: var(--mainLightYellow);
+  }
+}

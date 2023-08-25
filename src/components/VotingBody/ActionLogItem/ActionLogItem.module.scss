@@ -1,0 +1,49 @@
+.container {
+  margin-top: 10px;
+ display: flex;
+ gap: 10px;
+ justify-content: space-between;
+  background: var(--mainBackground);
+  padding: 18px;
+  border-radius: 10px;
+}
+.time{
+  border-radius: 5px;
+  background: var(--subBgBackground);
+  font-family: Jost;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.imageId{
+  flex: 1 0;
+  font-family: Jost;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  
+  font-family: Jost;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0em;
+  text-align: left;
+  
+}
+.id{
+font-weight: bold;
+}
+.green{
+  color: var(--mainGreen);
+  font-size: 1.25rem;
+}
+.yellow{
+  color: var(--mainYellow);
+}
+.red{
+  color: var(--mainTRed);
+}

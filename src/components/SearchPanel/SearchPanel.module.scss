@@ -1,0 +1,57 @@
+.container {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+.search {
+  flex: 1 0 auto;
+  position: relative;
+ 
+}
+
+.searchTerm {
+  width: 470px;
+  height: 60px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  font-family: Jost;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: left;
+  width: 100%;
+  &:focus {
+    border: 2px solid var(--hoverBgBtn);
+  }
+  &:valid  {
+    border: 2px solid var(--activeBgBtn);
+  }
+}
+
+.searchButton {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  color: var(--textBtn);
+  background: var(--hoverBgBtn);
+  text-align: center;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+.btn{
+  padding: 0;
+  height: 60px;
+  width: 60px;
+  color: var(--textBtn);
+  background: var(--bgBtn);
+  font-size: 1.25rem;
+  border-radius: 20px;
+  border: none;
+}

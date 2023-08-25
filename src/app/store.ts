@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import stateReducer from '../redux/stateReducer';
+import votesReducer from '../redux/votesReducer';
 
 export const store = configureStore({
   reducer: {
     state: stateReducer,
+    votes: votesReducer,
   },
 });
 

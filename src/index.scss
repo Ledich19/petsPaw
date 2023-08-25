@@ -86,7 +86,10 @@
 
   // color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #f5f5f5;
+  background-color: var(--mainBackground);
+
+  --mainBackground: #f5f5f5;
+  --subBgBackground: #ffffff;
 
   --mainColor: #FF868E;
   --mainColorLight:#FBE0DC;
@@ -94,8 +97,14 @@
   --additionalTextColor: #8C8C8C;
 
   --mainBlue: #B4B7FF;
+  --mainRed: #FF868E;
   --mainYellow: #FFD280;
   --mainGreen: #97EAB9;
+  --mainLightBlue: #B4B7FF;
+  --mainLightRed: #FF868E4D;
+  --mainLightYellow: #FFD2804D;
+  --mainLightGreen: #97EAB94D;
+
   --borderColor: #ffffff99;
   
   --textBtn: #FF868E;

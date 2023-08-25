@@ -1,20 +1,16 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import BackBtn from '../BackBtn/BackBtn';
-import Title from '../Title/Title';
-import s from './VotingBody.module.scss';
+
+import s from './Votes.module.scss';
 import { NO_IMAGE } from '../../app/variables';
-import Loader from '../Loader/Loader';
 import VotesPanel from './VotesPanel/VotesPanel';
 import { getImage } from '../../redux/votesReducer';
-import ActionLogItem from './ActionLogItem/ActionLogItem';
 import ActionLogList from './ActionLogList/ActionLogList';
+import Loader from '../../components/Loader/Loader';
+import Title from '../../components/Title/Title';
+import BackBtn from '../../components/BackBtn/BackBtn';
 
-type VotingBodyProps = {
-  title: string;
-};
-
-const VotingBody = ({ title }: VotingBodyProps) => {
+const Votes = () => {
   const dispatch = useAppDispatch();
   const { imgForVotes, userActionLogs } = useAppSelector((store) => store.votes);
   useEffect(() => {
@@ -41,6 +37,6 @@ const VotingBody = ({ title }: VotingBodyProps) => {
   );
 };
 
-VotingBody.defaultProps = {};
+Votes.defaultProps = {};
 
-export default VotingBody;
+export default Votes;

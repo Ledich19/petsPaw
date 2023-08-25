@@ -1,14 +1,14 @@
-import s from './Votes.module.scss';
+import s from './Breeds.module.scss';
 import SearchPanel from '../../components/SearchPanel/SearchPanel';
 import VotingBody from '../../components/VotingBody/VotingBody';
 
-const Votes = () => {
+const Breeds = () => {
   return (
-    <div className={s.container}>
+    <div className={s.breeds}>
       <SearchPanel />
       <VotingBody />
     </div>
   );
 };
 
-export default Votes;
+export default Breeds;

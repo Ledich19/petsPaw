@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import ErrorPage from './pages/Page404/Page404';
 import Layout from './pages/Layout/Layout';
 import HelloPage from './pages/HelloPage/HelloPage';
-import Votes from './pages/Votes/Votes';
+import Votes from './pages/VotingBody/Votes';
 
 const App = () => {
   return (

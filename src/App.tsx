@@ -5,6 +5,7 @@ import HelloPage from './pages/HelloPage/HelloPage';
 import Votes from './pages/VotingBody/Votes';
 import Breeds from './pages/Breeds/Breeds';
 import BreedInfo from './pages/BreedInfo/BreedInfo';
+import Gallery from './pages/Gallery/Gallery';
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
         <Route path="voting" element={<Votes />} />
         <Route path="breeds" element={<Breeds />} />
         <Route path="breeds/:id" element={<BreedInfo />} />
-        <Route path="gallery" element={<>gallery</>} />
+        <Route path="gallery" element={<Gallery />} />
         <Route path="404" element={<ErrorPage />} />
         <Route path="*" element={<Navigate to="404" />} />
       </Route>

@@ -151,7 +151,7 @@ body {
 //<ПЕРЕМЕННЫЕ>==================================
 $minWidht: 320px;
 $maxWidht: 1152;
-$maxWidhtConteiner: 1600;
+$maxWidhtConteiner: 1440;
 $md1: $maxWidhtConteiner + 12;
 $md2: 991.98;
 $md3: 767.98;
@@ -162,7 +162,7 @@ $md4: 479.98;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  //max-width: $maxWidhtConteiner + px;
+  max-width: $maxWidhtConteiner + px;
   margin: 0 auto;
   @media (max-width: #{$md1}px) {
     //max-width: 970px;

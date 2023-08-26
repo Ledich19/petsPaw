@@ -8,6 +8,7 @@ import { useGetBreedsQuery } from '../../services/breedsAPI';
 import s from './Breeds.module.scss';
 import BreedsItem from './BreedsItem/BreedsItem';
 import { setLimitBreeds, setNameBreeds, setSortDirectionBreeds } from '../../redux/breedsReducer';
+import GreedPattern from '../../components/GreedPattern/GreedPattern';
 
 const Breeds = () => {
   const dispatch = useAppDispatch();
@@ -21,7 +22,7 @@ const Breeds = () => {
   const limits = [];
   const limitCount = data?.length || 0;
   for (let limitItem = step; limitItem <= limitCount; limitItem += step) {
-    limits.push(limitItem);
+    limits.push(`${limitItem}`);
   }
 
   const isData = data || [];
@@ -61,23 +62,20 @@ const Breeds = () => {
           <span className="icon-sort-revert-color-20" />
         </button>
       </div>
-      {isLoading && <Loader />}
 
-      <div className={s.gridContainer}>
+      <GreedPattern>
         {isLoading && <Loader />}
-        <div className={s.gridParent}>
-          {dataVisible?.map((breed) => {
-            return (
-              <BreedsItem
-                key={breed.id}
-                imgId={breed.reference_image_id}
-                name={breed.name}
-                id={breed.id}
-              />
-            );
-          }) || ''}
-        </div>
-      </div>
+        {dataVisible?.map((breed) => {
+          return (
+            <BreedsItem
+              key={breed.id}
+              imgId={breed.reference_image_id}
+              name={breed.name}
+              id={breed.id}
+            />
+          );
+        }) || ''}
+      </GreedPattern>
     </div>
   );
 };

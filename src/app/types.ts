@@ -1,9 +1,9 @@
-export type ImageType = {
-  id: string;
-  url: string;
-  width: number;
-  height: number;
-};
+// export type ImageType = {
+//   id: string;
+//   url: string;
+//   width: number;
+//   height: number;
+// };
 
 export type Reaction = 'like' | 'dislike' | 'favorites';
 export type UserActionLog = {
@@ -29,3 +29,30 @@ export interface LikeTypeFul extends LikeTypeBase {
     url: string;
   };
 }
+
+export type Breed = {
+  id: string;
+  name: string;
+  weight: string;
+  height: string;
+  life_span: string;
+  bred_for: string;
+  breed_group: string;
+  reference_image_id: string;
+};
+
+export type Image = {
+  id: string;
+  url: string;
+  width: number;
+  height: number;
+  mime_type: string;
+  breeds: [
+    {
+      id: number;
+      name: string;
+    }
+  ];
+  categories: [];
+  breed_ids: string;
+};

@@ -1,0 +1,28 @@
+.btn {
+  cursor: pointer;
+  color: var(--textBtn);
+  background: var(--bgBtn);
+  &:hover {
+    background-color: var(--activeBgBtn);
+    color: var(--activeTextBtn);
+  }
+}
+.bigBtn {
+  @extend .btn;
+  height: 60px;
+  width: 60px;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+.smallBtn {
+  @extend .btn;
+  height: 40px;
+  width: 40px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}

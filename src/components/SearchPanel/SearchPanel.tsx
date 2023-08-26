@@ -1,3 +1,4 @@
+import Button from '../Button/Button';
 import s from './SearchPanel.module.scss';
 
 const SearchPanel = () => {
@@ -14,15 +15,9 @@ const SearchPanel = () => {
           <span className="icon-search" />
         </button>
       </div>
-      <button type="button" aria-label="Лайк" className={s.btn}>
-        <span className="icon-like" />
-      </button>
-      <button type="button" className={s.btn}>
-        <span className="icon-fav" />
-      </button>
-      <button type="button" className={s.btn}>
-        <span className="icon-dislike" />
-      </button>
+      <Button handler={() => {}} size="big" type="like" />
+      <Button handler={() => {}} size="big" type="fav" />
+      <Button handler={() => {}} size="big" type="dislike" />
     </div>
   );
 };

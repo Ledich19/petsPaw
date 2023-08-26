@@ -33,7 +33,14 @@ export interface LikeTypeFul extends LikeTypeBase {
 export type Breed = {
   id: string;
   name: string;
-  weight: string;
+  description: string;
+  temperament: string;
+  origin: string;
+  weight: {
+    imperial: string;
+
+    metric: string;
+  };
   height: string;
   life_span: string;
   bred_for: string;

@@ -11,7 +11,10 @@ export const breedsApi = createApi({
         url: '/breeds',
       }),
     }),
+    getBreedById: builder.query<Breed, string>({
+      query: (id: string) => `/breeds/${id}`,
+    }),
   }),
 });
 
-export const { useGetBreedsQuery } = breedsApi;
+export const { useGetBreedsQuery, useGetBreedByIdQuery } = breedsApi;

@@ -6,11 +6,11 @@ type InitialState = {
   limit: string;
   sortDirectionFromAZ: boolean;
 };
-type optionsStringAction = {
+type OptionsStringAction = {
   type: string;
   payload: string;
 };
-type optionsBooleanAction = {
+type OptionsBooleanAction = {
   type: string;
   payload: boolean;
 };
@@ -26,16 +26,16 @@ const breedsSlice = createSlice({
   name: 'breeds',
   initialState,
   reducers: {
-    setSearchBreeds(state, actions: optionsStringAction) {
+    setSearchBreeds(state, actions: OptionsStringAction) {
       return { ...state, imgForVotes: actions.payload };
     },
-    setNameBreeds(state, actions: optionsStringAction) {
+    setNameBreeds(state, actions: OptionsStringAction) {
       return { ...state, name: actions.payload };
     },
-    setLimitBreeds(state, actions: optionsStringAction) {
+    setLimitBreeds(state, actions: OptionsStringAction) {
       return { ...state, limit: actions.payload };
     },
-    setSortDirectionBreeds(state, actions: optionsBooleanAction) {
+    setSortDirectionBreeds(state, actions: OptionsBooleanAction) {
       return { ...state, sortDirectionFromAZ: actions.payload };
     },
   },

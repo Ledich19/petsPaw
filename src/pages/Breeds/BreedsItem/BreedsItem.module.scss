@@ -1,0 +1,45 @@
+.breedItem {
+  position: relative;
+}
+.mask {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: end;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--mainLightRed);
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
+}
+.img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.activeLink {
+  cursor: pointer;
+  background-color: var(--activeBgBtn);
+  color: var(--activeTextBtn);
+}
+.navLink {
+  cursor: pointer;
+  background-color: var(--bgBtn);
+  color: var(--textBtn);
+  text-decoration: none;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5rem;
+}

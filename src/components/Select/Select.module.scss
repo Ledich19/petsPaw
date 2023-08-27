@@ -2,8 +2,6 @@
   height: 40px;
   border-radius: 10px;
   font-size: 1rem;
-  color: var(--additionalTextColor);
-  background-color: var(--mainBackground);
   border: none;
   outline: none;
   padding: 0 10px;
@@ -14,5 +12,15 @@
   &:active {
     border: 1px solid var(--hoverBgBtn);
   }
-  
+}
+.selectTypeOne{
+  @extend .select;
+  color: var(--additionalTextColor);
+  background-color: var(--mainBackground);
+}
+.selectTypeTwo{
+  @extend .select;
+  color: var(--textColor);
+  background-color: var(--subBgBackground);
+  width: 100%;
 }

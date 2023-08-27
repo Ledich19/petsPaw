@@ -2,19 +2,23 @@ import { ChangeEvent } from 'react';
 import s from './Select.module.scss';
 
 type SelectProps = {
-  options: string[];
-  prefix: string;
+  type?: 1 | 2;
+  options: {
+    text: string;
+    value: string;
+  }[];
   multiple?: boolean;
   handler: (e: ChangeEvent<HTMLSelectElement>) => void;
 };
 
-const Select = ({ options, prefix, multiple, handler }: SelectProps) => {
+const Select = ({ options, multiple, handler, type }: SelectProps) => {
+  const activeClass = type === 2 ? s.selectTypeTwo : s.selectTypeOne;
   return (
-    <select onChange={handler} multiple={multiple} className={s.select}>
+    <select onChange={handler} multiple={multiple} className={activeClass}>
       {options.map((option) => {
         return (
-          <option key={option} className={s.option} value={option}>
-            {prefix} {option}
+          <option key={option.value} className={s.option} value={option.value}>
+            {option.text}
           </option>
         );
       })}
@@ -23,6 +27,7 @@ const Select = ({ options, prefix, multiple, handler }: SelectProps) => {
 };
 
 Select.defaultProps = {
+  type: 1,
   multiple: false,
 };
 

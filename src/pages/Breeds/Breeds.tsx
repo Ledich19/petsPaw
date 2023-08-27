@@ -12,22 +12,26 @@ import GreedPattern from '../../components/GreedPattern/GreedPattern';
 
 const Breeds = () => {
   const dispatch = useAppDispatch();
-  const { search, name, limit, sortDirectionFromAZ } = useAppSelector((store) => store.breeds);
+  const { search, breedId, limit, sortDirectionFromAZ } = useAppSelector((store) => store.breeds);
   const { data, error, isLoading } = useGetBreedsQuery(search);
-  // console.log(data);
 
-  const names = data ? ['All Breeds', ...data.map((breed) => breed.name)] : [];
+  const names = data
+    ? [
+        { text: 'All Breeds', value: '' },
+        ...data.map((breed) => ({ text: breed.name, value: breed.id })),
+      ]
+    : [];
 
   const step = 5;
   const limits = [];
   const limitCount = data?.length || 0;
   for (let limitItem = step; limitItem <= limitCount; limitItem += step) {
-    limits.push(`${limitItem}`);
+    limits.push({ text: `Limit:${limitItem}`, value: `Limit: ${limitItem}` });
   }
 
   const isData = data || [];
   const filteredData =
-    name && name !== 'All Breeds' ? isData.filter((breed) => breed.name === name) : isData;
+    breedId && breedId !== 'All Breeds' ? isData.filter((breed) => breed.id === breedId) : isData;
   const dataVisible = filteredData.slice(0, parseInt(limit, 10));
 
   if (sortDirectionFromAZ) {
@@ -53,8 +57,8 @@ const Breeds = () => {
       <div className={s.header}>
         <BackBtn />
         <Title text="Breeds" />
-        <Select handler={nameHandler} prefix="" options={names} />
-        <Select handler={limitHandler} prefix="Limit:" options={limits} />
+        <Select handler={nameHandler} options={names} />
+        <Select handler={limitHandler} options={limits} />
         <button onClick={sortAZHandler} type="button" className={s.button}>
           <span className="icon-sort-color-20" />
         </button>

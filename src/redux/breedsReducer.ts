@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 type InitialState = {
   search: string;
-  name: string;
+  breedId: string;
   limit: string;
   sortDirectionFromAZ: boolean;
 };
@@ -17,7 +17,7 @@ type OptionsBooleanAction = {
 
 const initialState: InitialState = {
   search: '',
-  name: '',
+  breedId: '',
   limit: '5',
   sortDirectionFromAZ: true,
 };
@@ -30,7 +30,7 @@ const breedsSlice = createSlice({
       return { ...state, imgForVotes: actions.payload };
     },
     setNameBreeds(state, actions: OptionsStringAction) {
-      return { ...state, name: actions.payload };
+      return { ...state, breedId: actions.payload };
     },
     setLimitBreeds(state, actions: OptionsStringAction) {
       return { ...state, limit: actions.payload };

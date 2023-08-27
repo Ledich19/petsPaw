@@ -1,78 +1,80 @@
-.breeds {
+.gallery {
   position: relative;
   flex: 1 1;
   width: 100%;
-  padding: 16px;
+  padding: 20px;
   overflow: hidden;
   border-radius: 20px;
   background-color: var(--subBgBackground);
-
-  // flex-direction: column;
-  // gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .header {
   display: flex;
   justify-content: space-between;
+}
+.headerWrapper {
+  display: flex;
   gap: 10px;
 }
-.button {
-  height: 40px;
-  width: 40px;
-  border-radius: 10px;
-  font-size: 1rem;
-  border: none;
-  outline: none;
-  background-color: var(--mainBackground);
+.upload {
   cursor: pointer;
-  &:hover {
-    border: 1px solid var(--mainColor);
-    color: var(--mainColor);
-  }
+  padding: 0 30px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--hoverBgBtn);
+  color: var(--textBtn);
+  border-radius: 10px;
+
+  font-size: 0.75rem;
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
   & span {
-    &:hover {
-      border: 1px solid var(--mainColor);
-      color: var(--mainColor);
-    }
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+  &:hover {
+    background-color: var(--activeBgBtn);
+    color: var(--activeTextBtn);
   }
 }
-.gridContainer {
-  flex: 1 0 auto;
-  height: 100%;
-  overflow: scroll; /* Прокрутка только здесь */
-  margin-top: 10px;
-  &::-webkit-scrollbar {
-    width: 0px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: transparent; /* Цвет трека (фона) */
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: transparent; /* Цвет ползунка (полосы прокрутки) */
-  }
+.options {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px 20px;
+  padding: 20px;
+  padding-top: 10px;
+  border-radius: 20px;
+  flex-wrap: wrap;
+  background-color: var(--mainBackground);
 }
-
-.gridParent {
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 200px;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+.optionsItem {
+  flex-basis: calc(50% - 10px);
+}
+.label {
+  color: #8c8c8c;
+  font-family: Jost;
+  text-transform: uppercase;
+  padding-left: 10px;
+  font-size: 0.63rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+}
+.witBtn {
+  .optionsItem {
+    flex: 1 1;
+  }
+  flex-basis: calc(50% - 10px);
+  align-items: flex-end;
+  justify-content: space-between;
+  display: flex;
   gap: 10px;
-
-  & div {
-    border-radius: 20px;
-    //background: green;
-  }
-  & div:nth-child(10n + 1),
-  & div:nth-child(10n + 8) {
-    grid-row: span 2;
-  }
-  & div:nth-child(10n + 4),
-  & div:nth-child(10n + 9) {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
+}
+.list{
+ flex: 0 0;
 }

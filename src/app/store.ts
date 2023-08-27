@@ -4,12 +4,14 @@ import votesReducer from '../redux/votesReducer';
 import { breedsApi } from '../services/breedsAPI';
 import { imagesApi } from '../services/imagesAPI';
 import breedsReducer from '../redux/breedsReducer';
+import galleryReducer from '../redux/galleryReducer';
 
 export const store = configureStore({
   reducer: {
     state: stateReducer,
     votes: votesReducer,
     breeds: breedsReducer,
+    gallery: galleryReducer,
     [breedsApi.reducerPath]: breedsApi.reducer,
     [imagesApi.reducerPath]: imagesApi.reducer,
   },

@@ -5,6 +5,7 @@
 //   height: number;
 // };
 
+export type Direction = 'RANDOM' | 'ASC' | 'DESC';
 export type Reaction = 'like' | 'dislike' | 'favorites';
 export type UserActionLog = {
   date: string;

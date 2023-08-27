@@ -6,80 +6,102 @@ import Select from '../../components/Select/Select';
 import Title from '../../components/Title/Title';
 import { useGetBreedsQuery } from '../../services/breedsAPI';
 import s from './Gallery.module.scss';
-import { setLimitBreeds, setNameBreeds, setSortDirectionBreeds } from '../../redux/breedsReducer';
 import GalleryItem from './GalleryItem/GalleryItem';
+import GreedPattern from '../../components/GreedPattern/GreedPattern';
+import { useGetImagesQuery } from '../../services/imagesAPI';
+import Button from '../../components/Button/Button';
+import { setBreed, setLimit, setOrder, setType } from '../../redux/galleryReducer';
 
 const Breeds = () => {
-  // const dispatch = useAppDispatch();
-  // const { search, name, limit, sortDirectionFromAZ } = useAppSelector((store) => store.breeds);
-  // const { data, error, isLoading } = useGetBreedsQuery(search);
-  // // console.log(data);
+  const dispatch = useAppDispatch();
+  const breeds = useGetBreedsQuery('');
+  const { order, type, breed, limit } = useAppSelector((store) => store.gallery);
+  const { data, error, isLoading, isFetching, refetch } = useGetImagesQuery({
+    breed_ids: breed,
+    limit,
+    order,
+    mime_types: type,
+  });
 
-  // const names = data ? ['All Breeds', ...data.map((breed) => breed.name)] : [];
+  const orderData = [
+    { text: 'Random', value: 'RANDOM' },
+    { text: 'Asc', value: 'ASC' },
+    { text: 'Desc', value: 'DESC' },
+  ];
+  const typeData = [
+    { text: 'All', value: 'gif,jpg,png' },
+    { text: 'Static', value: 'jpg,png' },
+    { text: 'Animated', value: 'gif' },
+  ];
+  const breedsData = breeds.data
+    ? [
+        { text: 'None', value: '' },
+        ...breeds.data.map((breedItem) => ({ text: breedItem.name, value: breedItem.id })),
+      ]
+    : [];
+  const limitData = Array(5)
+    .fill('')
+    .map((_, i) => ({ text: `${(i + 1) * 5} items per page`, value: `${(i + 1) * 5}` }));
 
-  // const step = 5;
-  // const limits = [];
-  // const limitCount = data?.length || 0;
-  // for (let limitItem = step; limitItem <= limitCount; limitItem += step) {
-  //   limits.push(limitItem);
-  // }
-
-  // const isData = data || [];
-  // const filteredData =
-  //   name && name !== 'All Breeds' ? isData.filter((breed) => breed.name === name) : isData;
-  // const dataVisible = filteredData.slice(0, parseInt(limit, 10));
-
-  // if (sortDirectionFromAZ) {
-  //   dataVisible.sort();
-  // } else {
-  //   dataVisible.sort().reverse();
-  // }
-
-  // const nameHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-  //   dispatch(setNameBreeds(e.target.value));
-  // };
-  // const limitHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-  //   dispatch(setLimitBreeds(e.target.value));
-  // };
-  // const sortAZHandler = () => {
-  //   dispatch(setSortDirectionBreeds(true));
-  // };
-  // const sortZAHandler = () => {
-  //   dispatch(setSortDirectionBreeds(false));
-  // };
+  const orderHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    if (e.target.value === 'RANDOM' || e.target.value === 'ASC' || e.target.value === 'DESC') {
+      dispatch(setOrder(e.target.value));
+    }
+  };
+  const typeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    dispatch(setType(e.target.value));
+  };
+  const bredHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    dispatch(setBreed(e.target.value));
+  };
+  const limitHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    dispatch(setLimit(e.target.value));
+  };
+  const updateHandler = () => {
+    refetch();
+  };
   return (
-    <div className={s.breeds}>
-      {' '}
-      hghjgjhjbjkbkj
-      {/* <div className={s.header}>
-        <BackBtn />
-        <Title text="Breeds" />
-        <Select handler={nameHandler} prefix="" options={names} />
-        <Select handler={limitHandler} prefix="Limit:" options={limits} />
-        <button onClick={sortAZHandler} type="button" className={s.button}>
-          <span className="icon-sort-color-20" />
-        </button>
-        <button onClick={sortZAHandler} type="button" className={s.button}>
-          <span className="icon-sort-revert-color-20" />
+    <div className={s.gallery}>
+      <div className={s.header}>
+        <div className={s.headerWrapper}>
+          <BackBtn />
+          <Title text="Gallery" />
+        </div>
+        <button type="button" className={s.upload}>
+          <span className="icon-upload" /> Upload
         </button>
       </div>
-      {isLoading && <Loader />}
-
-      <div className={s.gridContainer}>
-        {isLoading && <Loader />}
-        <div className={s.gridParent}>
-          {dataVisible?.map((breed) => {
-            return (
-              <GalleryItem
-                key={breed.id}
-                imgId={breed.reference_image_id}
-                name={breed.name}
-                id={breed.id}
-              />
-            );
-          }) || ''}
+      <div className={s.options}>
+        <div className={s.optionsItem}>
+          <div className={s.label}>order</div>
+          <Select type={2} handler={orderHandler} options={orderData} />
         </div>
-      </div> */}
+
+        <div className={s.optionsItem}>
+          <div className={s.label}>type</div>
+          <Select type={2} handler={typeHandler} options={typeData} />
+        </div>
+
+        <div className={s.optionsItem}>
+          <div className={s.label}>breed</div>
+          <Select type={2} handler={bredHandler} options={breedsData} />
+        </div>
+
+        <div className={s.witBtn}>
+          <div className={s.optionsItem}>
+            <div className={s.label}>limit</div>
+            <Select type={2} handler={limitHandler} options={limitData} />
+          </div>
+          <Button handler={updateHandler} size="small" type="update" />
+        </div>
+      </div>
+
+      <GreedPattern>
+        {isFetching && <Loader />}
+        {data?.map((image) => {
+          return <GalleryItem key={image.id} url={image.url} id={image.id} />;
+        }) || ''}
+      </GreedPattern>
     </div>
   );
 };

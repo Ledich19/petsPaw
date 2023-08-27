@@ -10,6 +10,7 @@
   font-size: 2rem;
   color: var(--mainColor)
 }
+
 .wrapper{}
 .loader{}
 
@@ -20,6 +21,7 @@ $loader-direction: normal;
 
 
 .wrapper{
+  z-index: 9999;
   width:148px; 
   height: 100px;  
   position: absolute;

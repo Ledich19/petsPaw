@@ -1,24 +1,22 @@
 import { NavLink } from 'react-router-dom';
 import s from './GalleryItem.module.scss';
 import { useGetImageByIdQuery } from '../../../services/imagesAPI';
+import Button from '../../../components/Button/Button';
 
 type GalleryItemProps = {
-  imgId: string;
-  name: string;
+  url: string;
   id: string;
 };
 
-const GalleryItem = ({ imgId, name, id }: GalleryItemProps) => {
-  const { data, error, isLoading } = useGetImageByIdQuery(imgId);
-  console.log(data);
+const GalleryItem = ({ url, id }: GalleryItemProps) => {
+  // const { data, error, isLoading } = useGetImageByIdQuery(imgId);
+  // console.log(data);
 
   return (
     <div className={s.breedItem}>
-      <img className={s.img || '/img/no-image.png'} src={data ? data?.url : ''} alt={name} />
+      <img className={s.img} src={url || '/img/no-image.png'} alt="" />
       <div className={s.mask}>
-        <NavLink to={id} className={(info) => (info.isActive ? s.activeLink : s.navLink)}>
-          {name}
-        </NavLink>
+        <Button handler={() => {}} size="small" type="fav" />
       </div>
     </div>
   );

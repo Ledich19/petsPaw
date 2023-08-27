@@ -26,7 +26,7 @@ const Breeds = () => {
   const limits = [];
   const limitCount = data?.length || 0;
   for (let limitItem = step; limitItem <= limitCount; limitItem += step) {
-    limits.push({ text: `Limit:${limitItem}`, value: `Limit: ${limitItem}` });
+    limits.push({ text: `Limit:${limitItem}`, value: `${limitItem}` });
   }
 
   const isData = data || [];

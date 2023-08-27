@@ -9,6 +9,7 @@
   transform: translate(-50%, -50%);
   position: absolute;
   padding: 30px;
+  
 }
 
 .centered {
@@ -20,11 +21,12 @@
 }
 
 .modal {
+  overflow: scroll;
   width: 52%;
   margin-right: 0;
   margin-left: auto;
   position: relative;
-  padding-top: 100px;
+  padding-top: 10vh;
   padding-right: 20px;
   padding-left: 20px;
   height: 100%;
@@ -32,6 +34,15 @@
   z-index: 11;
   border-radius: 16px;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent; 
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
 }
 
 .heading {

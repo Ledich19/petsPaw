@@ -87,7 +87,13 @@ const Modal = () => {
           </div>
 
           <div className={s.closeBtn}>
-            <Button handler={handleCloseModal} size="small" type="close" />
+            <Button
+              handler={() => {
+                dispatch(setStateModal(false));
+              }}
+              size="small"
+              type="close"
+            />
           </div>
 
           <div

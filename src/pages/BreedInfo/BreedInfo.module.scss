@@ -21,12 +21,7 @@
 
 .infoBox {
   flex: 1 0 auto;
-  // height: 100%;
-  //overflow: scroll; /* Прокрутка только здесь */
-  // overflow-y: auto;
   border: 2px solid var(--mainColorLight);
-  // overflow: scroll;
-  //height: 100%;
   position: relative;
   margin-top: 50px;
   padding-top: 26px;
@@ -49,8 +44,6 @@
 }
 
 .description {
-  // height: 58px;
-  // overflow: scroll;
   font-family: Jost;
   color: var(--additionalTextColor);
   text-align: center;

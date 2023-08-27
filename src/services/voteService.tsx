@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_API_URL } from '../app/variables';
-import { ImageType, LikeType, LikeTypeFul } from '../app/types';
+import { ImageType, LikeType } from '../app/types';
 
 const baseUrl = BASE_API_URL;
 

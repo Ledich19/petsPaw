@@ -38,7 +38,6 @@ export const { setImagesForVotes, addToUserActionLogs } = votesSlice.actions;
 export const getImage = () => {
   return async (dispatch: Dispatch) => {
     const img = await voteService.getImg();
-    console.log('GET ONe', img);
     dispatch(setImagesForVotes(img[0]));
   };
 };
@@ -50,7 +49,6 @@ export const voteImage = (id: string, action: 'like' | 'dislike') => {
       date: `${new Date()}`,
       reaction: action,
     };
-    console.log(likeImg);
     dispatch(addToUserActionLogs(logItem));
     dispatch(setImagesForVotes(null));
     const img = await voteService.getImg();

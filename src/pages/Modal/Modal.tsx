@@ -1,11 +1,4 @@
-import React, {
-  DragEvent,
-  MouseEventHandler,
-  ChangeEvent,
-  MouseEvent,
-  useState,
-  useRef,
-} from 'react';
+import { DragEvent, ChangeEvent, MouseEvent, useState, useRef } from 'react';
 import s from './Modal.module.scss';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import Button from '../../components/Button/Button';

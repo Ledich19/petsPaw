@@ -5,7 +5,7 @@ import { Direction, Image, UploadImage } from '../app/types';
 interface GetImagesArgs {
   breed_ids: string;
   limit: string;
-  order: Direction;
+  order: Direction | '';
   mime_types: string;
 }
 
@@ -13,7 +13,7 @@ export const imagesApi = createApi({
   reducerPath: 'imagesApi',
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_API_URL,
-    prepareHeaders: (headers, { getState }) => {
+    prepareHeaders: (headers) => {
       const token = import.meta.env.VITE_API_KEY;
       if (token) {
         headers.set('x-api-key', `${token}`);

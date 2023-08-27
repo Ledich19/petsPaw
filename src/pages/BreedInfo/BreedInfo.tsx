@@ -2,8 +2,6 @@ import { useParams } from 'react-router-dom';
 import BackBtn from '../../components/BackBtn/BackBtn';
 import Loader from '../../components/Loader/Loader';
 import Title from '../../components/Title/Title';
-import { Breed } from '../../app/types';
-import { useGetImagesQuery } from '../../services/imagesAPI';
 import { useGetBreedByIdQuery } from '../../services/breedsAPI';
 import s from './BreedInfo.module.scss';
 import BreedImages from './BreedImages/BreedImages';
@@ -11,11 +9,10 @@ import BreedImages from './BreedImages/BreedImages';
 const BreedInfo = () => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetBreedByIdQuery(id || '');
-  // const images = useGetImagesQuery({ breed_ids: id, limit: 5 });
+
   if (!data) {
     return null;
   }
-  console.log('BREED: ', data);
 
   const keyword = 'cats for ';
   const startIndex = (data?.description || '').indexOf(keyword);

@@ -1,9 +1,9 @@
-// export type ImageType = {
-//   id: string;
-//   url: string;
-//   width: number;
-//   height: number;
-// };
+export type ImageType = {
+  id: string;
+  url: string;
+  width: number;
+  height: number;
+};
 
 export type UploadImage = { file: File; id: string };
 export type Direction = 'RANDOM' | 'ASC' | 'DESC';

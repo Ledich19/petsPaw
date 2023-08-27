@@ -13,7 +13,7 @@ import GreedPattern from '../../components/GreedPattern/GreedPattern';
 const Breeds = () => {
   const dispatch = useAppDispatch();
   const { search, breedId, limit, sortDirectionFromAZ } = useAppSelector((store) => store.breeds);
-  const { data, error, isLoading } = useGetBreedsQuery(search);
+  const { data, isLoading } = useGetBreedsQuery(search);
 
   const names = data
     ? [

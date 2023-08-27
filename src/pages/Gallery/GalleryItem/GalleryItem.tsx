@@ -3,10 +3,9 @@ import Button from '../../../components/Button/Button';
 
 type GalleryItemProps = {
   url: string;
-  id: string;
 };
 
-const GalleryItem = ({ url, id }: GalleryItemProps) => {
+const GalleryItem = ({ url }: GalleryItemProps) => {
   return (
     <div className={s.breedItem}>
       <img className={s.img} src={url || '/img/no-image.png'} alt="" />

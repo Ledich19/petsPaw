@@ -10,7 +10,7 @@ type BreedImagesProps = {
 const BreedImages = ({ breedId, name }: BreedImagesProps) => {
   const [activeImg, setActiveImg] = useState(0);
   const LIMIT_BREED_SLIDER_IMG = '5';
-  const { data, error, isLoading } = useGetImagesQuery({
+  const { data, isLoading } = useGetImagesQuery({
     breed_ids: breedId,
     limit: LIMIT_BREED_SLIDER_IMG,
     order: '',

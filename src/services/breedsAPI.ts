@@ -9,6 +9,9 @@ export const breedsApi = createApi({
     getBreeds: builder.query<Breed[], string>({
       query: (search: string) => ({
         url: '/breeds',
+        params: {
+          search,
+        },
       }),
     }),
     getBreedById: builder.query<Breed, string>({

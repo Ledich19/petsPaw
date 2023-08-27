@@ -9,7 +9,7 @@ type BreedsItemProps = {
 };
 
 const BreedsItem = ({ imgId, name, id }: BreedsItemProps) => {
-  const { data, error, isLoading } = useGetImageByIdQuery(imgId);
+  const { data } = useGetImageByIdQuery(imgId);
 
   return (
     <div className={s.breedItem}>

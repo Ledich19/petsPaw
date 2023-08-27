@@ -17,7 +17,7 @@ const Breeds = () => {
   const dispatch = useAppDispatch();
   const breeds = useGetBreedsQuery('');
   const { order, type, breed, limit } = useAppSelector((store) => store.gallery);
-  const { data, error, isLoading, isFetching, refetch } = useGetImagesQuery({
+  const { data, isFetching, refetch } = useGetImagesQuery({
     breed_ids: breed,
     limit,
     order,
@@ -103,7 +103,7 @@ const Breeds = () => {
       <GreedPattern>
         {isFetching && <Loader />}
         {data?.map((image) => {
-          return <GalleryItem key={image.id} url={image.url} id={image.id} />;
+          return <GalleryItem key={image.id} url={image.url} />;
         }) || ''}
       </GreedPattern>
     </div>

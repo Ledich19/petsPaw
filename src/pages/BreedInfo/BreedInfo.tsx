@@ -8,7 +8,7 @@ import BreedImages from './BreedImages/BreedImages';
 
 const BreedInfo = () => {
   const { id } = useParams();
-  const { data, error, isLoading } = useGetBreedByIdQuery(id || '');
+  const { data, isLoading } = useGetBreedByIdQuery(id || '');
 
   if (!data) {
     return null;

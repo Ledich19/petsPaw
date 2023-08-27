@@ -1,9 +1,7 @@
 
 .gridContainer {
-  flex: 1 0 auto;
-  height: 100%;
+  flex: 1 1 auto;
   overflow: scroll; 
-  margin-top: 10px;
   &::-webkit-scrollbar {
     width: 0px;
   }
@@ -16,7 +14,6 @@
 }
 
 .gridParent {
-  margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 200px;

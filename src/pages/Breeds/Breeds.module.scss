@@ -6,9 +6,9 @@
   overflow: hidden;
   border-radius: 20px;
   background-color: var(--subBgBackground);
-
-  // flex-direction: column;
-  // gap: 10px;
+gap: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .header {
   display: flex;

@@ -7,4 +7,9 @@
   font-size: 1.25rem;
   border-radius: 10px;
   border: none;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--activeBgBtn);
+    color: var(--activeTextBtn);
+  }
 }

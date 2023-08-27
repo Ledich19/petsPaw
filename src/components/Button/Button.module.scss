@@ -1,5 +1,6 @@
 .btn {
   cursor: pointer;
+  transition: all 0.25s ease;
   color: var(--textBtn);
   background: var(--bgBtn);
   &:hover {

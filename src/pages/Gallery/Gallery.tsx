@@ -11,6 +11,7 @@ import GreedPattern from '../../components/GreedPattern/GreedPattern';
 import { useGetImagesQuery } from '../../services/imagesAPI';
 import Button from '../../components/Button/Button';
 import { setBreed, setLimit, setOrder, setType } from '../../redux/galleryReducer';
+import { setStateModal } from '../../redux/stateReducer';
 
 const Breeds = () => {
   const dispatch = useAppDispatch();
@@ -60,6 +61,9 @@ const Breeds = () => {
   const updateHandler = () => {
     refetch();
   };
+  const handleOpenModal = () => {
+    dispatch(setStateModal(true));
+  };
   return (
     <div className={s.gallery}>
       <div className={s.header}>
@@ -67,7 +71,7 @@ const Breeds = () => {
           <BackBtn />
           <Title text="Gallery" />
         </div>
-        <button type="button" className={s.upload}>
+        <button type="button" onClick={handleOpenModal} className={s.upload}>
           <span className="icon-upload" /> Upload
         </button>
       </div>

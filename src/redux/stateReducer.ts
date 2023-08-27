@@ -1,28 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 type InitialState = {
-  item: string;
+  isOpenModal: boolean;
 };
-type Actions = {
+type IsOpenModalActions = {
   type: string;
-  payload: {
-    item: string;
-  };
+  payload: boolean;
 };
 
 const initialState: InitialState = {
-  item: 'item',
+  isOpenModal: false,
 };
 
-const itemSlice = createSlice({
+const stateSlice = createSlice({
   name: 'state',
   initialState,
   reducers: {
-    changeState(state, actions: Actions) {
-      return { ...state, item: actions.payload.item };
+    setStateModal(state, actions: IsOpenModalActions) {
+      return { ...state, isOpenModal: actions.payload };
     },
   },
 });
 
-export const { changeState } = itemSlice.actions;
-export default itemSlice.reducer;
+export const { setStateModal } = stateSlice.actions;
+export default stateSlice.reducer;

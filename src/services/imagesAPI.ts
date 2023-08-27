@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { BASE_API_URL } from '../app/variables';
-import { Direction, Image } from '../app/types';
+import { Direction, Image, UploadImage } from '../app/types';
 
 interface GetImagesArgs {
   breed_ids: string;
@@ -18,6 +18,7 @@ export const imagesApi = createApi({
       if (token) {
         headers.set('x-api-key', `${token}`);
       }
+
       return headers;
     },
   }),
@@ -36,7 +37,24 @@ export const imagesApi = createApi({
         },
       }),
     }),
+
+    uploadPost: builder.mutation<UploadImage, Partial<UploadImage>>({
+      query: (body) => {
+        const formData = new FormData();
+        Object.keys(body).forEach((key) => {
+          const value = body[key as keyof UploadImage];
+          if (value !== undefined) {
+            formData.append(key, value);
+          }
+        });
+        return {
+          url: `images/upload`,
+          method: 'POST',
+          body: formData,
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetImageByIdQuery, useGetImagesQuery } = imagesApi;
+export const { useGetImageByIdQuery, useGetImagesQuery, useUploadPostMutation } = imagesApi;

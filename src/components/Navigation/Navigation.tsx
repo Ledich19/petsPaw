@@ -7,10 +7,11 @@ const Navigation = () => {
     <header className={s.header}>
       <div className={s.container}>
         <div className={s.heder}>
-          <span className={s.logo}>
+          <a href="/" className={`${s.logo} ${s.noUnderline}`}>
             <span className="icon-paw" />
             <span className={s.logoText}>PetsPaw</span>
-          </span>
+          </a>
+
           <Switcher />
         </div>
         <div className={`${s.title}`}>Hi!👋</div>

@@ -81,6 +81,7 @@
   background-image: url('/img/no-image.png');
   background-position: center;
   background-repeat: no-repeat;
+  background-blend-mode: multiply; 
   border: 2px dashed var(--mainColorLight);
   border-radius: 20px;
   overflow: hidden;

@@ -14,13 +14,19 @@
   justify-content: space-between;
   gap: 8px;
 }
-.logo {
+
+.heder{
   display: flex;
+  justify-content: space-between;
+}
+.logo{
   align-items: center;
   font-size: 1.5;;
   display: flex;
   color: var(--mainColor);
+
 }
+
 .logoText {
   margin-left: 5px;
   font-weight: bold;

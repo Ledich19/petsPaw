@@ -1,12 +1,17 @@
 import s from './Navigation.module.scss';
 import NavigationItem from '../NavigationItem/NavigationItem';
+import Switcher from '../Switcher/Switcher';
 
 const Navigation = () => {
   return (
     <header className={s.header}>
       <div className={s.container}>
-        <div className={`${s.logo} icon-paw`}>
-          <span className={s.logoText}>PetsPaw</span>
+        <div className={s.heder}>
+          <span className={s.logo}>
+            <span className="icon-paw" />
+            <span className={s.logoText}>PetsPaw</span>
+          </span>
+          <Switcher />
         </div>
         <div className={`${s.title}`}>Hi!👋</div>
         <div className={s.welcome}>Welcome to MacPaw Bootcamp 2023</div>

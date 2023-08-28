@@ -4,13 +4,14 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import Button from '../../components/Button/Button';
 import { setStateModal } from '../../redux/stateReducer';
 import { useUploadPostMutation } from '../../services/imagesAPI';
+import UploadResult from './UploadResult/UploadResult';
 
 const Modal = () => {
   const dispatch = useAppDispatch();
-  const closeModalElemRef = useRef<HTMLDivElement>(null);
-
-  const [updatePost, result] = useUploadPostMutation();
   const { isOpenModal } = useAppSelector((store) => store.state);
+  const [updatePost, result] = useUploadPostMutation();
+
+  const closeModalElemRef = useRef<HTMLDivElement>(null);
   const [imageSrc, setImageSrc] = useState('');
   const [isDragging, setIsDragging] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -18,7 +19,7 @@ const Modal = () => {
   if (!isOpenModal) {
     return null;
   }
-  const handleCloseModal = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleCloseModal = (e: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLDivElement>) => {
     if (
       e.target === e.currentTarget ||
       (closeModalElemRef.current && e.target === closeModalElemRef.current)
@@ -75,7 +76,8 @@ const Modal = () => {
   };
 
   return (
-    <button type="button" className={s.darkBG} onClick={handleCloseModal} tabIndex={0}>
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+    <div role="button" className={s.darkBG} onClick={handleCloseModal} tabIndex={0}>
       <div ref={closeModalElemRef} className={s.centered}>
         <div className={s.modal}>
           <div className={s.modalHeader}>
@@ -86,15 +88,14 @@ const Modal = () => {
             </div>
           </div>
 
-          <div className={s.closeBtn}>
-            <Button
-              handler={() => {
-                dispatch(setStateModal(false));
-              }}
-              size="small"
-              type="close"
-            />
-          </div>
+          <Button
+            handler={() => {
+              dispatch(setStateModal(false));
+            }}
+            className={s.closeBtn}
+            size="small"
+            type="close"
+          />
 
           <div
             className={`${s.uploadSpace} ${isDragging ? s.dragging : ''}`}
@@ -134,23 +135,11 @@ const Modal = () => {
             ) : (
               <div className={s.noAction}>No file selected</div>
             )}
-
-            {result.isSuccess && (
-              <div className={s.result}>
-                <span className={`${s.green} icon-success`} />
-                <div className={s.resultText}>Thanks for the Upload - Cat found!</div>
-              </div>
-            )}
-            {result.isError && (
-              <div className={s.result}>
-                <span className={`${s.red} icon-close`} />
-                <div className={s.resultText}>No Cat found - try a different one</div>
-              </div>
-            )}
+            <UploadResult isSuccess={result.isSuccess} isError={result.isError} />
           </div>
         </div>
       </div>
-    </button>
+    </div>
   );
 };
 

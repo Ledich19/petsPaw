@@ -1,0 +1,208 @@
+.darkBG {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  padding: 30px;
+  
+}
+
+.centered {
+  width: calc(50% + 30px);
+  height: 100%;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.modal {
+  overflow: scroll;
+  width: 52%;
+  margin-right: 0;
+  margin-left: auto;
+  position: relative;
+  padding-top: 10vh;
+  padding-right: 20px;
+  padding-left: 20px;
+  height: 100%;
+  background: var(--mainBackground);
+  z-index: 11;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent; 
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+}
+
+.heading {
+  margin: 0;
+  padding: 10px;
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+}
+.heading {
+  color: #1d1d1d;
+
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.info {
+  color: #8c8c8c;
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  .red {
+    color: var(--mainRed);
+  }
+}
+
+.uploadSpace {
+  position: relative;
+  margin-top: 40px;
+  height: 50%;
+  background: var(--subBgBackground);
+  background-image: url('/img/no-image.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply; 
+  border: 2px dashed var(--mainColorLight);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image {
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.dragging {
+  border: 2px solid var(--mainColor);
+}
+.uploadText {
+  position: absolute;
+  color: var(--additionalTextColor);
+
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+.pointText {
+  color: var(--textColor);
+  font-weight: 500;
+}
+.pointTextBtn {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  background: none;
+  font-size: 1.25rem;
+  color: var(--textColor);
+  font-weight: 500;
+}
+.fileInput {
+  display: none;
+}
+
+.noAction {
+  margin-top: 20px;
+  color: #8c8c8c;
+
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-align: center;
+}
+.haveActions {
+  margin-top: 20px;
+  color: #8c8c8c;
+
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-align: center;
+}
+.uploadBtn {
+  margin: 0 auto;
+  margin-top: 20px;
+  height: 40px;
+  cursor: pointer;
+  padding: 0 30px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--activeBgBtn);
+  color: var(--activeTextBtn);
+  border-radius: 10px;
+
+  font-size: 0.75rem;
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+  & span {
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+  &:hover {
+    background-color: var(--hoverBgBtn);
+    color: var(--textBtn);
+  }
+}
+.closeBtn {
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  align-self: flex-end;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.result {
+  margin-top: 20px;
+  display: flex;
+  text-align: center;
+  color: var(--additionalTextColor);
+  background: var(--subBgBackground);
+  padding: 20px;
+  border-radius: 10px;
+  font-family: Jost;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.green {
+  color: var(--mainGreen);
+}
+.resultText {
+  margin-left: 10px;
+}
+.red {
+  color: var(--mainRed);
+}
